@@ -1,0 +1,118 @@
+/* TestimonialsSection.css */
+.testimonials {
+  position: relative;
+  padding: 90px 20px;
+  background: #fff7ed;
+  overflow: hidden;
+}
+
+.testimonials__bgGrid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.6;
+}
+
+.testimonials__bgGlow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(250, 204, 21, 0.25),
+      transparent 55%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(59, 130, 246, 0.15),
+      transparent 55%
+    );
+}
+
+.testimonials__container {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.testimonials__header {
+  text-align: center;
+}
+
+.testimonials__badge {
+  display: inline-block;
+  background: #fde68a;
+  color: #92400e;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.testimonials__title {
+  font-size: 42px;
+  font-weight: 900;
+  color: #1e293b;
+}
+
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.testimonials__card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 18px;
+  padding: 22px;
+  height: fit-content;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.testimonials__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+}
+
+.testimonials__stars {
+  display: flex;
+  gap: 3px;
+  color: #facc15;
+  margin-bottom: 10px;
+}
+
+.testimonials__text {
+  font-size: 15px;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.testimonials__name {
+  font-weight: 800;
+  color: #1e293b;
+  font-size: 14px;
+}
+
+.testimonials__role {
+  font-size: 12px;
+  color: #64748b;
+}
+
+@media (max-width: 768px) {
+  .testimonials__title {
+    font-size: 30px;
+  }
+}

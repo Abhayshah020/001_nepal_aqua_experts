@@ -1,0 +1,107 @@
+/* CTASection.css */
+
+.ctaSection {
+  position: relative;
+  padding: 100px 20px;
+  background: #fff7ed;
+}
+
+/* subtle industrial grid */
+.ctaSection::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+
+/* container */
+.ctaSection__container {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* title */
+.ctaSection__title {
+  font-size: 42px;
+  font-weight: 900;
+  color: #1e293b;
+  line-height: 1.2;
+}
+
+/* subtitle */
+.ctaSection__subtitle {
+  font-size: 18px;
+  color: #475569;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* actions */
+.ctaSection__actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+/* base button */
+.ctaSection__btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 26px;
+  border-radius: 14px;
+
+  font-size: 16px;
+  font-weight: 800;
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+/* primary button (call) */
+.ctaSection__btnPrimary {
+  background: linear-gradient(135deg, #facc15, #f59e0b);
+  color: #1e293b;
+  box-shadow: 0 10px 22px rgba(245, 158, 11, 0.25);
+}
+
+.ctaSection__btnPrimary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 30px rgba(245, 158, 11, 0.35);
+}
+
+/* secondary button (WhatsApp) */
+.ctaSection__btnSecondary {
+  background: #25d366;
+  color: white;
+  box-shadow: 0 10px 20px rgba(37, 211, 102, 0.25);
+}
+
+.ctaSection__btnSecondary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 30px rgba(37, 211, 102, 0.35);
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .ctaSection__title {
+    font-size: 30px;
+  }
+
+  .ctaSection__subtitle {
+    font-size: 16px;
+  }
+}

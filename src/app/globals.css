@@ -1,26 +1,169 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
+  --color-navy: #001F3F;
+  --color-navy-light: #003366;
+  --color-gold: #FFC107;
+  --color-gold-light: #FFD54F;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter, ui-sans-serif, system-ui);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #f8fafc;
+  --foreground: #001F3F;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+/* GRID BACKGROUND */
+.grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: 0;
+}
+
+/* SOFT GRADIENT OVERLAY */
+.gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(251, 191, 36, 0.3),
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(59, 130, 246, 0.2),
+      transparent 50%
+    );
+  z-index: 0;
+}
+/* Hero gradient background */
+.hero-gradient {
+  background: linear-gradient(135deg, #001F3F 0%, #003366 50%, #004080 100%);
+}
+
+/* Gold shimmer animation */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.gold-shimmer {
+  background: linear-gradient(90deg, #FFC107, #FFD54F, #FFC107, #FFD54F, #FFC107);
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Floating animation for CTA button */
+@keyframes float-pulse {
+  0%, 100% { transform: translateY(0px) scale(1); box-shadow: 0 10px 40px rgba(255, 193, 7, 0.4); }
+  50% { transform: translateY(-4px) scale(1.02); box-shadow: 0 20px 60px rgba(255, 193, 7, 0.6); }
+}
+
+.cta-pulse {
+  animation: float-pulse 2.5s ease-in-out infinite;
+}
+
+/* Card hover effect */
+.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 60px rgba(0, 31, 63, 0.15);
+}
+
+/* Section stripe */
+.section-stripe {
+  background: linear-gradient(180deg, #f8fafc 0%, #e8f0f8 100%);
+}
+
+/* Chatbot slide-in animation */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.chatbot-window {
+  animation: slideUp 0.25s ease-out;
+}
+
+/* WhatsApp shake animation */
+@keyframes wshake {
+  0%, 100% { transform: rotate(0deg); }
+  20% { transform: rotate(-15deg); }
+  40% { transform: rotate(15deg); }
+  60% { transform: rotate(-10deg); }
+  80% { transform: rotate(10deg); }
+}
+
+.whatsapp-btn:hover svg {
+  animation: wshake 0.5s ease;
+}
+
+/* Number counter animation */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.stat-card {
+  animation: countUp 0.6s ease both;
+}
+
+/* Scrollbar custom */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #001F3F; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #003366; }
+
+/* Nav link underline animation */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #FFC107;
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after { width: 100%; }
+
+/* Chat messages */
+.chat-message-user {
+  background: linear-gradient(135deg, #001F3F, #003366);
+  color: white;
+}
+.chat-message-bot {
+  background: #f1f5f9;
+  color: #001F3F;
 }

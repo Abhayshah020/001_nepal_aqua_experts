@@ -1,0 +1,144 @@
+/* AudienceSection.css */
+
+.audienceX {
+  position: relative;
+  padding: 100px 20px;
+  background: #fff7ed;
+  overflow: hidden;
+}
+
+/* background grid */
+.audienceX::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 42px 42px;
+  opacity: 0.5;
+}
+
+/* glow accents */
+.audienceX::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(250, 204, 21, 0.22),
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(59, 130, 246, 0.16),
+      transparent 60%
+    );
+}
+
+/* container */
+.audienceX__container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+/* header */
+.audienceX__header {
+  text-align: center;
+}
+
+.audienceX__badge {
+  display: inline-block;
+  background: #fde68a;
+  color: #92400e;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.audienceX__title {
+  font-size: 40px;
+  font-weight: 900;
+  color: #1e293b;
+  line-height: 1.2;
+}
+
+/* grid */
+.audienceX__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+/* card */
+.audienceX__card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 18px;
+
+  padding: 24px;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* hover effect */
+.audienceX__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+}
+
+/* glow on hover */
+.audienceX__card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top left,
+    rgba(250, 204, 21, 0.18),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.audienceX__card:hover::before {
+  opacity: 1;
+}
+
+/* title */
+.audienceX__cardTitle {
+  font-size: 17px;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 10px;
+}
+
+/* desc */
+.audienceX__cardDesc {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .audienceX__title {
+    font-size: 28px;
+  }
+}

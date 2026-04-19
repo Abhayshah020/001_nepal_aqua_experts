@@ -1,0 +1,316 @@
+/* CONTACT PAGE ROOT */
+.contactPage {
+  position: relative;
+  min-height: 100vh;
+  background: #fff7ed;
+  overflow: hidden;
+  padding-bottom: 80px;
+}
+
+/* GRID BACKGROUND */
+.contactPage__bgGrid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+
+/* SOFT GLOW */
+.contactPage__bgGlow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(250, 204, 21, 0.22),
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(59, 130, 246, 0.16),
+      transparent 60%
+    );
+}
+
+/* HERO */
+.contactPage__hero {
+  text-align: center;
+  padding: 40px 20px 40px;
+  position: relative;
+display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contactPage__hero h1 {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #1e293b;
+}
+
+.contactPage__hero p {
+  color: #475569;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* GRID */
+.contactPage__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  max-width: 1280px;
+  margin: auto;
+  padding: 20px;
+  position: relative;
+}
+
+/* FORM CARD */
+.contactPage__formCard {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  height: fit-content;
+  padding: 28px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.contactPage__formCard h2 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+/* FORM */
+.contactPage__form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contactPage__form input,
+.contactPage__form select,
+.contactPage__form textarea {
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  outline: none;
+  transition: 0.2s;
+}
+
+.contactPage__form input:focus,
+.contactPage__form select:focus,
+.contactPage__form textarea:focus {
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+}
+
+/* OTHER INPUT */
+.contactPage__other {
+  border: 2px solid #f59e0b !important;
+}
+
+/* BUTTON */
+.contactPage__form button {
+  background: linear-gradient(135deg, #facc15, #f59e0b);
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 900;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* SIDE */
+.contactPage__side {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* AI CARD */
+.contactPage__aiCard {
+  background: #001f3f;
+  color: white;
+  padding: 20px;
+  font-size: 1rem;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contactPage__aiCard button {
+  margin-top: 10px;
+  background: #ffc107;
+  border: none;
+  padding: 8px;
+  color: #000;
+  font-size: 1rem;
+  font-weight: 900;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: ease 0.2s;
+}
+
+.contactPage__aiCard button:hover {
+  transform: translateY(-2px);
+}
+
+/* INFO CARD */
+.contactPage__infoCard {
+  background: white;
+  border-radius: 18px;
+  padding: 18px;
+}
+
+.contactItem {
+  display: flex;
+  gap: 10px;
+  padding: 8px 0;
+  color: #334155;
+}
+
+/* NOTE */
+.contactPage__note {
+  background: #fff8e1;
+  border-left: 4px solid #facc15;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+}
+
+/* SUCCESS */
+.contactPage__success {
+  text-align: center;
+  padding: 40px;
+}
+
+/* SPIN */
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .contactPage__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contactPage__successCard {
+  text-align: center;
+  padding: 28px 20px;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #ecfdf5, #ffffff);
+  border: 1px solid #bbf7d0;
+  box-shadow: 0 12px 30px rgba(16, 185, 129, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+/* soft glow */
+.contactPage__successCard::before {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.15), transparent 60%);
+  z-index: 0;
+}
+
+.contactPage__successIcon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  background: #dcfce7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #16a34a;
+  position: relative;
+  z-index: 1;
+  animation: popIn 0.4s ease;
+}
+
+.contactPage__successCard h3 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #14532d;
+  position: relative;
+  z-index: 1;
+}
+
+.contactPage__successCard p {
+  font-size: 13px;
+  color: #166534;
+  margin-top: 6px;
+  position: relative;
+  z-index: 1;
+}
+
+.contactPage__successActions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.contactPage__successActions a {
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  background: #16a34a;
+  color: white;
+  transition: 0.2s;
+}
+
+.contactPage__successActions a:hover {
+  transform: translateY(-2px);
+}
+
+
+.contactPage__successNote {
+  display: block;
+  margin-top: 12px;
+  font-size: 11px;
+  color: #15803d;
+  opacity: 0.8;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.contactPage__lockedNote {
+  background: #fff7ed;
+  border: 1px solid #f59e0b;
+  padding: 10px;
+  font-size: 12px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  color: #92400e;
+}

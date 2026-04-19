@@ -1,0 +1,193 @@
+/* =========================
+   WRAPPER
+========================= */
+.wastePage {
+  width: 100%;
+  background: #fff;
+}
+
+/* =========================
+   HERO
+========================= */
+.wastePage__hero {
+  position: relative;
+  height: 460px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-image: url("https://images.unsplash.com/photo-1532996122724-e3c354a0b15b");
+  background-size: cover;
+  background-position: center;
+}
+
+.wastePage__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 31, 63, 0.25),
+    rgba(0, 31, 63, 0.88)
+  );
+}
+
+.wastePage__heroContent {
+  position: relative;
+  text-align: center;
+  max-width: 900px;
+  padding: 20px;
+  color: #fff;
+}
+
+.wastePage__badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffc107;
+  background: rgba(255, 193, 7, 0.12);
+  margin-bottom: 14px;
+}
+
+.wastePage__heroContent h1 {
+  font-size: 44px;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+.wastePage__heroContent p {
+  font-size: 15px;
+  opacity: 0.85;
+}
+
+/* =========================
+   CONTENT
+========================= */
+.wastePage__content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 90px;
+}
+
+/* =========================
+   CARD
+========================= */
+.wastePage__card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+/* IMAGE */
+.wastePage__img img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 22px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease;
+}
+
+.wastePage__img img:hover {
+  transform: scale(1.02);
+}
+
+/* TEXT */
+.wastePage__text h2 {
+  font-size: 28px;
+  font-weight: 900;
+  color: #001f3f;
+  margin-bottom: 10px;
+}
+
+.wastePage__text p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* FEATURES */
+.wastePage__features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.wastePage__features span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f8f9fb;
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #333;
+}
+
+/* ACTIONS */
+.wastePage__actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* BUTTONS */
+.btnPrimary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffc107;
+  color: #001f3f;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.btnSecondary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 2px solid #001f3f;
+  color: #001f3f;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+/* =========================
+   REVERSE LAYOUT
+========================= */
+.wastePage__img.reverse {
+  order: 2;
+}
+
+.wastePage__text.reverse {
+  order: 1;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .wastePage__card {
+    grid-template-columns: 1fr;
+  }
+
+  .wastePage__heroContent h1 {
+    font-size: 32px;
+  }
+
+  .wastePage__features {
+    grid-template-columns: 1fr;
+  }
+}

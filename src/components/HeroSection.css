@@ -1,0 +1,138 @@
+/* HeroSection.css */
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  background: #fff7ed;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: auto;
+  padding: 40px 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.badge {
+  background: #fde68a;
+  color: #92400e;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+  width: fit-content;
+}
+
+h1 {
+  font-size: 56px;
+  font-weight: 800;
+  color: #1e293b;
+  line-height: 1.15;
+}
+
+h1 span {
+  color: #ea580c;
+}
+
+p {
+  font-size: 18px;
+  color: #475569;
+  max-width: 520px;
+}
+
+.cta {
+  display: flex;
+  gap: 16px;
+}
+
+.btn {
+  padding: 16px 30px;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 15px;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 22px rgba(245, 158, 11, 0.35);
+  background: linear-gradient(135deg, #facc15, #f59e0b);
+  color: #1e293b;
+}
+
+.btn:hover {
+  color: #253348;
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 20px 50px rgba(245, 158, 11, 0.45);
+}
+
+.primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 16px 35px rgba(245, 158, 11, 0.45);
+}
+
+.secondary {
+  background: white;
+  border: 2px solid #f59e0b;
+  color: #b45309;
+}
+
+.secondary:hover {
+  transform: translateY(-2px);
+  background: #fffbeb;
+}
+
+.review {
+  font-size: 14px;
+  color: #334155;
+}
+
+.visual {
+  position: relative;
+  height: 420px;
+}
+
+.img {
+  position: absolute;
+  border-radius: 18px;
+  object-fit: cover;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.main {
+  width: 340px;
+  height: 400px;
+  right: 0;
+  top: 0;
+}
+
+.small {
+  width: 250px;
+  height: auto;
+  left: 0;
+  bottom: 0;
+}
+
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 38px;
+  }
+
+  .visual {
+    height: 280px;
+  }
+}
