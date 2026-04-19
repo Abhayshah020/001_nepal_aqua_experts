@@ -19,10 +19,26 @@ const PRODUCTS = [
   "Other",
 ];
 
+const isValidEmail = (email: string) => {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+};
+
+const isValidPhone = (phone: string) => {
+  return /^[0-9]{7,15}$/.test(phone); // simple international-safe range
+};
+
 export default function ContactPage() {
   const { language, setOpenAiChat } = useLanguage();
 
   const t = (en: string, np: string) => (language === "en" ? en : np);
+
+  const [errors, setErrors] = useState<{
+    name?: string;
+    email?: string;
+    phone?: string;
+    product?: string;
+    otherProduct?: string;
+  }>({});
 
   const [form, setForm] = useState({
     name: "",
@@ -51,6 +67,38 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const newErrors: typeof errors = {};
+
+    if (!form.name.trim()) {
+      newErrors.name = "Name is required";
+    }
+
+    if (!form.phone.trim()) {
+      newErrors.phone = "Phone is required";
+    } else if (!isValidPhone(form.phone)) {
+      newErrors.phone = "Invalid phone number";
+    }
+
+    if (form.email && !isValidEmail(form.email)) {
+      newErrors.email = "Invalid email address";
+    }
+
+    if (!form.product) {
+      newErrors.product = "Please select a product";
+    }
+
+    if (form.product === "Other" && !form.otherProduct.trim()) {
+      newErrors.otherProduct = "Please specify product";
+    }
+
+    // 🚨 Stop if errors exist
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    setErrors({});
     setStatus("loading");
 
     const finalProduct =
@@ -76,6 +124,8 @@ export default function ContactPage() {
         setStatus("sent");
         setIsLocked(true);
         sessionStorage.setItem("contact_form_sent", "true");
+      } else {
+        setStatus("error");
       }
     } catch {
       setStatus("error");
@@ -143,9 +193,27 @@ export default function ContactPage() {
           ) : (
             <form onSubmit={handleSubmit} className="contactPage__form" >
 
-              <input disabled={isLocked} name="name" placeholder="Full Name *" required onChange={handleChange} />
-              <input disabled={isLocked} name="phone" placeholder="Phone *" required onChange={handleChange} />
-              <input disabled={isLocked} name="email" placeholder="Email" onChange={handleChange} />
+              <input
+                disabled={isLocked}
+                name="name"
+                placeholder="Full Name *"
+                onChange={handleChange}
+              />
+              {errors.name && <span className="error">{errors.name}</span>}
+              <input
+                disabled={isLocked}
+                name="phone"
+                placeholder="Phone *"
+                onChange={handleChange}
+              />
+              {errors.phone && <span className="error">{errors.phone}</span>}
+              <input
+                disabled={isLocked}
+                name="email"
+                placeholder="Email"
+                onChange={handleChange}
+              />
+              {errors.email && <span className="error">{errors.email}</span>}
 
               <select disabled={isLocked} name="product" required onChange={handleChange}>
                 <option value="">{t("Select Product", "उत्पादन छान्नुहोस्")}</option>
@@ -153,6 +221,7 @@ export default function ContactPage() {
                   <option key={p} value={p}>{p}</option>
                 ))}
               </select>
+              {errors.product && <span className="error">{errors.product}</span>}
 
               {form.product === "Other" && (
                 <input
@@ -163,6 +232,9 @@ export default function ContactPage() {
                   onChange={handleChange}
                   className="contactPage__other"
                 />
+              )}
+              {errors.otherProduct && (
+                <span className="error">{errors.otherProduct}</span>
               )}
 
               <textarea
