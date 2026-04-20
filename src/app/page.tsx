@@ -103,23 +103,31 @@ export default function HomePage() {
 
   return (
     <main >
+      
       {/* ─── HERO ─── */}
       <HeroSection language={language} />
       {/* ─── STATS ─── */}
-      <section className="bg-[#FFC107] py-12">
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center" style={{
-          maxWidth: '1280px',
-          margin: '0 auto',
-          padding: '20px 24px',
-          display: 'flex',
-          justifyContent: 'space-between',
-        }}>
-          {stats.map((s, i) => (
-            <div key={i} className="stat-card" style={{ animationDelay: `${i * 0.1}s` }}>
-              <p className="text-4xl font-black text-[#001F3F]">{language === "en" ? s.en : s.np}</p>
-              <p className="text-[#001F3F] font-semibold mt-1 text-sm">{language === "en" ? s.labelEn : s.labelNp}</p>
-            </div>
-          ))}
+      <section className="stats-section">
+        <div className="stats-container">
+
+          <div className="stats-grid">
+            {stats.map((s, i) => (
+              <div
+                key={i}
+                className="stat-card"
+                style={{ animationDelay: `${i * 0.08}s` }}
+              >
+                <p className="stat-value">
+                  {language === "en" ? s.en : s.np}
+                </p>
+
+                <p className="stat-label">
+                  {language === "en" ? s.labelEn : s.labelNp}
+                </p>
+              </div>
+            ))}
+          </div>
+
         </div>
       </section>
 

@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-navy: #001F3F;
+  --color-navy: #001f3f;
   --color-navy-light: #003366;
-  --color-gold: #FFC107;
-  --color-gold-light: #FFD54F;
+  --color-gold: #ffc107;
+  --color-gold-light: #ffd54f;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter, ui-sans-serif, system-ui);
@@ -12,7 +12,7 @@
 
 :root {
   --background: #f8fafc;
-  --foreground: #001F3F;
+  --foreground: #001f3f;
 }
 
 * {
@@ -61,17 +61,28 @@ body {
 }
 /* Hero gradient background */
 .hero-gradient {
-  background: linear-gradient(135deg, #001F3F 0%, #003366 50%, #004080 100%);
+  background: linear-gradient(135deg, #001f3f 0%, #003366 50%, #004080 100%);
 }
 
 /* Gold shimmer animation */
 @keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
 }
 
 .gold-shimmer {
-  background: linear-gradient(90deg, #FFC107, #FFD54F, #FFC107, #FFD54F, #FFC107);
+  background: linear-gradient(
+    90deg,
+    #ffc107,
+    #ffd54f,
+    #ffc107,
+    #ffd54f,
+    #ffc107
+  );
   background-size: 200% auto;
   animation: shimmer 3s linear infinite;
   -webkit-background-clip: text;
@@ -81,8 +92,15 @@ body {
 
 /* Floating animation for CTA button */
 @keyframes float-pulse {
-  0%, 100% { transform: translateY(0px) scale(1); box-shadow: 0 10px 40px rgba(255, 193, 7, 0.4); }
-  50% { transform: translateY(-4px) scale(1.02); box-shadow: 0 20px 60px rgba(255, 193, 7, 0.6); }
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+    box-shadow: 0 10px 40px rgba(255, 193, 7, 0.4);
+  }
+  50% {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(255, 193, 7, 0.6);
+  }
 }
 
 .cta-pulse {
@@ -91,7 +109,9 @@ body {
 
 /* Card hover effect */
 .product-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 .product-card:hover {
   transform: translateY(-8px);
@@ -105,8 +125,14 @@ body {
 
 /* Chatbot slide-in animation */
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px) scale(0.95); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .chatbot-window {
@@ -115,11 +141,22 @@ body {
 
 /* WhatsApp shake animation */
 @keyframes wshake {
-  0%, 100% { transform: rotate(0deg); }
-  20% { transform: rotate(-15deg); }
-  40% { transform: rotate(15deg); }
-  60% { transform: rotate(-10deg); }
-  80% { transform: rotate(10deg); }
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(-15deg);
+  }
+  40% {
+    transform: rotate(15deg);
+  }
+  60% {
+    transform: rotate(-10deg);
+  }
+  80% {
+    transform: rotate(10deg);
+  }
 }
 
 .whatsapp-btn:hover svg {
@@ -128,8 +165,14 @@ body {
 
 /* Number counter animation */
 @keyframes countUp {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .stat-card {
@@ -137,33 +180,187 @@ body {
 }
 
 /* Scrollbar custom */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #f1f5f9; }
-::-webkit-scrollbar-thumb { background: #001F3F; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #003366; }
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #001f3f;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #003366;
+}
 
 /* Nav link underline animation */
 .nav-link {
   position: relative;
 }
 .nav-link::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -2px;
   left: 0;
   width: 0;
   height: 2px;
-  background: #FFC107;
+  background: #ffc107;
   transition: width 0.3s ease;
 }
-.nav-link:hover::after { width: 100%; }
+.nav-link:hover::after {
+  width: 100%;
+}
 
 /* Chat messages */
 .chat-message-user {
-  background: linear-gradient(135deg, #001F3F, #003366);
+  background: linear-gradient(135deg, #001f3f, #003366);
   color: white;
 }
 .chat-message-bot {
   background: #f1f5f9;
-  color: #001F3F;
+  color: #001f3f;
+}
+
+/* ───────────────────────── */
+/* SECTION BACKGROUND */
+/* ───────────────────────── */
+.stats-section {
+  background: linear-gradient(135deg, #ffc107 0%, #ffb300 100%);
+  padding: 20px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle glow */
+.stats-section::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.25),
+    transparent 70%
+  );
+}
+
+/* ───────────────────────── */
+/* CONTAINER (1280px max) */
+/* ───────────────────────── */
+.stats-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ───────────────────────── */
+/* GRID */
+/* ───────────────────────── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* tablet */
+@media (min-width: 640px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* desktop */
+@media (min-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+  }
+}
+
+/* ───────────────────────── */
+/* CARD */
+/* ───────────────────────── */
+.stat-card {
+  padding: 26px 18px;
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
+
+  text-align: center;
+
+  transition: all 0.35s ease;
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+
+  animation: fadeUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+/* hover interaction */
+.stat-card:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+/* ───────────────────────── */
+/* VALUE */
+/* ───────────────────────── */
+.stat-value {
+  font-size: 26px;
+  font-weight: 900;
+  color: #001f3f;
+  letter-spacing: -0.02em;
+}
+
+/* responsive scaling */
+@media (min-width: 640px) {
+  .stat-value {
+    font-size: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .stat-value {
+    font-size: 40px;
+  }
+}
+
+/* ───────────────────────── */
+/* LABEL */
+/* ───────────────────────── */
+.stat-label {
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(0, 31, 63, 0.8);
+}
+
+@media (min-width: 640px) {
+  .stat-label {
+    font-size: 14px;
+  }
+}
+
+/* ───────────────────────── */
+/* ANIMATION */
+/* ───────────────────────── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
