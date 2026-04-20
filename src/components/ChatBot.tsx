@@ -159,10 +159,12 @@ export default function ChatBot() {
       )}
 
       {/* FAB */}
-      <button onClick={() => setIsOpen(!isOpen)} className="an-fab">
-        {isOpen ? <X size={21} /> : <MessageCircle size={21} />}
-        {!isOpen && <span className="an-fab-badge">AI</span>}
-      </button>
+      {!isOpen && (
+        <button onClick={() => setIsOpen(!isOpen)} className="an-fab">
+          <MessageCircle size={21} />
+          <span className="an-fab-badge">AI</span>
+        </button>
+      )}
     </div>
   );
 }
