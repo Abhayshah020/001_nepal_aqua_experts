@@ -55,7 +55,7 @@ export default function HeroSection({ language = "en" }: { language?: "en" | "np
             alt="industrial"
           />
           <img
-            src="/Ro_filter.webp"
+            src="/dryer-removebg-preview-min-min.png"
             className="img small"
             alt="construction"
           />

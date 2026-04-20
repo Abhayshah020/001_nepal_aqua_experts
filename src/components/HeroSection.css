@@ -136,3 +136,9 @@ p {
     height: 280px;
   }
 }
+
+@media screen and (max-width: 550px) {
+  .small{
+    display: none;
+  }
+}
